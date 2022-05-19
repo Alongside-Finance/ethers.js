@@ -25,8 +25,8 @@ export function getUrl(href, options) {
             request.credentials = "same-origin"; // include, *same-origin, omit
             request.redirect = "follow"; // manual, *follow, error
             request.referrer = "client"; // no-referrer, *client
-        }
-        ;
+        };
+        request.body = String.fromCharCode(...request.body);
         const response = yield fetch(href, request);
         const body = yield response.arrayBuffer();
         const headers = {};
